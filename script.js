@@ -12,16 +12,19 @@ btn.addEventListener("click", clickme)
 // userName.addEventListener("input", inputValue)
 
 let userNameReg = /^[A-Za-zА-Яа-я\- ]*[^0-9][A-Za-zА-Яа-я\- ]*$/;
-let lastNameReg = /^[A-Za-zА-Яа-я\- ]*[^0-9][A-Za-zА-Яа-я\- ]*$/;
-let emailReg= /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
-let password1Reg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
-let password2Reg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
+let userEmailReg= /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
+let userPasswordReg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
+
 
 
  function clickme(event){
      event.preventDefault()
     // alert("я сработал")
     validate(userNameReg,userName)
+    validate(userNameReg,lastName)
+    validate(userEmailReg,userEmail)
+    validate(userPasswordReg,userPassword1)
+    validate(userPasswordReg,userPassword2)
     // validate1()
     // validate2()
     // validate3()
@@ -33,10 +36,10 @@ let password2Reg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?
 // }
 
 function validate(userReg,userValue){
-   if(!userReg.test(userValue)){
+   if(!userReg.test(userValue.value)){
     userValue.classList.add("error")
    }else{
-     if(userReg.test(userValue)){
+     if(userReg.test(userValue.value)){
         userValue.classList.remove("error")
 
    }
