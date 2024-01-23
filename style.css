@@ -38,5 +38,7 @@ input{
     color: blue;
     cursor: pointer; 
     font-weight: 900;
-
+}
+input.error{
+    border: 2px solid red;
 }
