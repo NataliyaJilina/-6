@@ -13,8 +13,8 @@ btn.addEventListener("click", clickme)
 
 let userNameReg = /^[A-Za-zА-Яа-я\- ]*[^0-9][A-Za-zА-Яа-я\- ]*$/;
 let userEmailReg= /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
+// let userPasswordReg= /^[{4,12}-\w]$/
 let userPasswordReg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
-
 
 
  function clickme(event){
@@ -25,6 +25,8 @@ let userPasswordReg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!
     validate(userEmailReg,userEmail)
     validate(userPasswordReg,userPassword1)
     validate(userPasswordReg,userPassword2)
+    validatePasswordMatch(userPassword1,userPassword2)
+
     // validate1()
     // validate2()
     // validate3()
@@ -45,6 +47,20 @@ function validate(userReg,userValue){
    }
 }   
 }
+
+function validatePasswordMatch(userPassword1,userPassword2){
+    if (userPassword1.value!==userPassword2.value){
+        userPassword1.classList.add("error");
+        userPassword2.classList.add("error");
+        alert("Пароли не совпадают")
+    }else{
+        
+        userPassword1.classList.remove("error");
+        userPassword2.classList.remove("error"); 
+    }
+}
+
+
 // function validate1(){
     // if(!lastNameReg.test(lastName.value)){
     //  lastName.classList.add("error")

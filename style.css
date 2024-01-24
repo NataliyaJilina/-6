@@ -16,6 +16,7 @@ input{
     outline: none;
     padding: 5px 3px;
 }
+
 .registerForm{
     width: 300px;
     /* border: 2px solid black; */
@@ -28,6 +29,7 @@ input{
     text-align: center;
     margin-bottom: 15px;
 }
+
 .registerForm button{
     display: block;
     width: 170px;
